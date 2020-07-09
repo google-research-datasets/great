@@ -12,7 +12,8 @@ derived from the corresponding split of ETH Py150 Open.
 Each split is stored in JSON format, across 100 file shards, each named `<split>__VARIABLE_MISUSE__SStuB.json-<shard number>-of-<number of shards>`.
 Each shard is a properly formatted JSON list. To reconstruct, parse each shard
 into a list of distionaries, and then concatenate the lists of dictionaries
-together.
+together. Shards of each split are placed in separate subdirectories.
+
 
 Each example has the following fields:
 
