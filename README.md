@@ -11,25 +11,26 @@ derived from the corresponding split of ETH Py150 Open.
 
 Each split is stored in JSON format, across 100 file shards, each named `<split>__VARIABLE_MISUSE__SStuB.json-<shard number>-of-<number of shards>`.
 Each shard is a properly formatted JSON list. To reconstruct, parse each shard
-into a list of distionaries, and then merge the dictionaries together.
+into a list of distionaries, and then concatenate the lists of dictionaries
+together.
 
 Each example has the following fields:
 
-* source_tokens: a list of strings; the original code (a Python function), split into tokens.
+* `source_tokens`: a list of strings; the original code (a Python function), split into tokens.
 
-* has_bug: boolean; if True, a synthetic bug has been introduced, if False, this is the original code.
+* `has_bug`: boolean; if True, a synthetic bug has been introduced, if False, this is the original code.
 
-* error_location: integer; the index into the code where a bug has been synthetically introduced.
+* `error_location`: integer; the index into the code where a bug has been synthetically introduced.
 
-* repair_candidates: a list of integers; the tokens of code that might be the correct tokens after the synthetically introduced bug has been repaired.
+* `repair_candidates`: a list of integers; the tokens of code that might be the correct tokens after the synthetically introduced bug has been repaired.
 bug_kind: a string; an integer; the type of bug introduced (always 1 in this dataset).
 
-* repair_targets: a list of integers; all the tokens of code that constitute the correct repair of the synthetically introduced bug.
+* `repair_targets`: a list of integers; all the tokens of code that constitute the correct repair of the synthetically introduced bug.
 edges: a list of triples of integers; has the form (before_index, after_index, edge_type), where the first is an index into the code of the source of a graph edge, the second is an index into the code of the target of a graph edge, and the third is the numerical type of the edge. Types include control flow and data flow information.
 
-* provenances: a json-formatted description of how this example was obtained. It contains the following fields:
-  * note: a string; it explains how the license for the source code was detected (it can be bigquery_api, manual, or github_api)
-  * license:a string; the applicable license (one of 'apache-2.0', 'lgpl-2.1', 'epl-1.0', 'isc', 'bsd-3-clause', 'bsd-2-clause', 'mit', 'gpl-2.0', 'cc0-1.0', 'lgpl-3.0', 'mpl-2.0', 'unlicense', 'gpl-3.0').
-  * datasetName: a string; always ETHPy150Open.
-  * filepath: a string; the GitHub repository name and file path from which this example was extracted.
+* `provenances`: a json-formatted description of how this example was obtained. It contains the following fields:
+  * `note`: a string; it explains how the license for the source code was detected (it can be bigquery_api, manual, or github_api)
+  * `license`: a string; the applicable license (one of 'apache-2.0', 'lgpl-2.1', 'epl-1.0', 'isc', 'bsd-3-clause', 'bsd-2-clause', 'mit', 'gpl-2.0', 'cc0-1.0', 'lgpl-3.0', 'mpl-2.0', 'unlicense', 'gpl-3.0').
+  * `datasetName`: a string; always ETHPy150Open.
+  * `filepath`: a string; the GitHub repository name and file path from which this example was extracted.
 
