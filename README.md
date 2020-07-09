@@ -20,13 +20,15 @@ Each example has the following fields:
 
 * `has_bug`: boolean; if True, a synthetic bug has been introduced, if False, this is the original code.
 
-* `error_location`: integer; the index into the code where a bug has been synthetically introduced.
+* `error_location`: integer; the token index into the code where a bug has been synthetically introduced.
 
 * `repair_candidates`: a list of integers; the tokens of code that might be the correct tokens after the synthetically introduced bug has been repaired.
-bug_kind: a string; an integer; the type of bug introduced (always 1 in this dataset).
+
+* `bug_kind`: a string; an integer; the type of bug introduced (always 1 in this dataset).
 
 * `repair_targets`: a list of integers; all the tokens of code that constitute the correct repair of the synthetically introduced bug.
-edges: a list of triples of integers; has the form (before_index, after_index, edge_type), where the first is an index into the code of the source of a graph edge, the second is an index into the code of the target of a graph edge, and the third is the numerical type of the edge. Types include control flow and data flow information.
+
+* `edges`: a list of triples of integers; has the form `[before_index, after_index, edge_type]`, where the first is an index into the code of the source of a graph edge, the second is an index into the code of the target of a graph edge, and the third is the numerical type of the edge. Types include control flow and data flow information.
 
 * `provenances`: a json-formatted description of how this example was obtained. It contains the following fields:
   * `note`: a string; it explains how the license for the source code was detected (it can be bigquery_api, manual, or github_api)
