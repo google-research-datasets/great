@@ -35,8 +35,12 @@ Each example has the following fields:
 * `edges`: a list of triples of integers; has the form `[before_index, after_index, edge_type]`, where the first is an index into the code of the source of a graph edge, the second is an index into the code of the target of a graph edge, and the third is the numerical type of the edge. Types include control flow and data flow information.
 
 * `provenances`: a json-formatted description of how this example was obtained. It contains the following fields:
-  * `note`: a string; it explains how the license for the source code was detected (it can be bigquery_api, manual, or github_api)
+  * `note`: a string; it explains how the license for the source code was detected (it can be 'bigquery_api', 'manual', or 'github_api')
   * `license`: a string; the applicable license (one of 'apache-2.0', 'lgpl-2.1', 'epl-1.0', 'isc', 'bsd-3-clause', 'bsd-2-clause', 'mit', 'gpl-2.0', 'cc0-1.0', 'lgpl-3.0', 'mpl-2.0', 'unlicense', 'gpl-3.0').
   * `datasetName`: a string; always ETHPy150Open.
   * `filepath`: a string; the GitHub repository name and file path from which this example was extracted.
 
+Each example is released under the license of the originating GitHub repository
+and project, as per the `license` field, described above. This means that the
+dataset comprises individual files licensed under different terms. Please take
+appropriate care when using this dataset.
