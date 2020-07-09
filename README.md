@@ -9,10 +9,13 @@ The dataset is presented in 3 splits: the training split `train`, the validation
 dataset `dev`, and the evaluation (test) dataset `eval`. Each of these was
 derived from the corresponding split of ETH Py150 Open.
 
-Each split is stored in JSON format, across 100 file shards, each named `<split>__VARIABLE_MISUSE__SStuB.json-<shard number>-of-<number of shards>`.
+Each split is stored in JSON format, across a number of file shards, each named `<split>__VARIABLE_MISUSE__SStuB.json-<shard number>-of-<number of shards>`.
+We chose numbers of shards to ensure no individual file is larger than the
+GitHub-imposed 100MB per-file limit.
+
 Each shard is a properly formatted JSON list. To reconstruct, parse each shard
 into a list of distionaries, and then concatenate the lists of dictionaries
-together. Shards of each split are placed in separate subdirectories.
+together into a single list. Shards of each split are placed in separate subdirectories.
 
 
 Each example has the following fields:
