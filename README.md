@@ -30,13 +30,13 @@ Each example has the following fields:
 
 * `error_location`: integer; the token index into the code where a bug has been synthetically introduced.
 
-* `repair_candidates`: a list of integers; the tokens of code that might be the correct tokens after the synthetically introduced bug has been repaired.
+* `repair_candidates`: a list of integers or strings; the tokens of code that might be the correct tokens after the synthetically introduced bug has been repaired. The integers capture the location of the tokens that constitute valid candidates. Bug-free examples also contain the string content of candidate tokens. For this Variable-Misuse dataset, it's safe to ignore the string candidates.
 
 * `bug_kind`: an integer; the type of bug introduced (always 1 in this dataset).
 
 * `bug_kind_name`: a string; the text type name of the bug (always "VARIABLE_MISUSE" in this dataset).
 
-* `repair_targets`: a list of integers; all the tokens of code that constitute the correct repair of the synthetically introduced bug.
+* `repair_targets`: a list of integers; all the tokens of code that constitute the correct repair of the synthetically introduced bug. Empty if there is no bug.
 
 * `edges`: a list of triples of integers; has the form `[before_index, after_index, edge_type, edge_type_name]`, where the first is an index into the code of the source of a graph edge, the second is an index into the code of the target of a graph edge, the third is the numerical type of the edge, and the fourth is the text form of the edge type. Types include control flow and data flow information. The full list is
   * `"enum_UNSPECIFIED", 0`, used for debugging, hopefully none of those exist in the dataset;
