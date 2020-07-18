@@ -12,10 +12,6 @@ derived from the corresponding split of ETH Py150 Open.
 Each dataset split is stored in a sharded text file. Each shard is named `<split>__VARIABLE_MISUSE__SStuB.txt-<shard number>-of-<number of shards>`.
 Each of these files is a regular text file, in which every line contains a JSON-encoded example. Reading each line separately and then decoding it as JSON will reconstitute one example per line.
 
-We also store an older formatting of the exact same data as sharded JSON files, where every shard is a single JSON-encoded list of examples. The
-newer one-object-per-text-line format seems to be more convenient for data readers, e.g., that from TensorFlow's tf.data, so we will be
-retiring the older JSON files.
-
 We chose numbers of shards to ensure no individual file is larger than the
 GitHub-imposed 100MB per-file limit.
 
