@@ -1,5 +1,7 @@
 # great
-The dataset for the variable-misuse task, used in the ICLR 2020 paper 'Global Relational Models of Source Code' [https://openreview.net/forum?id=B1lnbRNtwr]
+The dataset for the variable-misuse task, described in the ICLR 2020 paper 'Global Relational Models of Source Code' [https://openreview.net/forum?id=B1lnbRNtwr]
+
+This is the public version of the dataset used in that paper. The original, used to produce the graphs in the paper, could not be open-sourced due to licensing issues. See the public associated code repository [https://github.com/VHellendoorn/ICLR20-Great] for results produced from this dataset.
 
 This dataset was generated synthetically from the corpus of Python code in the
 ETH Py150 Open dataset
